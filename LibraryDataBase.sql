@@ -1,32 +1,30 @@
 CREATE TABLE admins(
-     admin_num      NUMBER(11)  CONSTRAINT ad_ad_num_pk  PRIMARY KEY,      -- ?™Æ?? ?ÏÔ?  (PK)
-     admin_name     VARCHAR2(255)  CONSTRAINT ad_ad_name_nn NOT NULL,      -- ?™Æ?? ????
-     admin_pw       VARCHAR2(255)  CONSTRAINT ad_ad_pw_nn NOT NULL,        -- ?™Æ?? ????ÏÔ?
-     admin_phone    VARCHAR2(255)  CONSTRAINT ad_ad_phone_uk UNIQUE,       -- ?™Æ?? ?◊º?Õπ?? (UK)
-     admin_email    VARCHAR2(255)  CONSTRAINT ad_ad_email_nn NOT NULL,     -- ?™Æ?? ???›˛?
-     admin_address  VARCHAR2(255)  CONSTRAINT ad_ad_address_nn NOT NULL,   -- ?™Æ?? ???
-     admin_registrationdate  VARCHAR2(255)  DEFAULT sysdate,               -- ?™Æ?? ?”Ù?˚≈?
-     admin_updatedate    VARCHAR2(255),                                     -- ?™Æ?? ?????
-     admin_note     VARCHAR2(255)                                          -- ???
+     admin_num      NUMBER(11)  CONSTRAINT ad_ad_num_pk  PRIMARY KEY,
+     admin_name     VARCHAR2(255)  CONSTRAINT ad_ad_name_nn NOT NULL,
+     admin_pw       VARCHAR2(255)  CONSTRAINT ad_ad_pw_nn NOT NULL, 
+     admin_phone    VARCHAR2(255)  CONSTRAINT ad_ad_phone_uk UNIQUE,
+     admin_email    VARCHAR2(255)  CONSTRAINT ad_ad_email_nn NOT NULL,  
+     admin_address  VARCHAR2(255)  CONSTRAINT ad_ad_address_nn NOT NULL,
+     admin_registrationdate  VARCHAR2(255)  DEFAULT sysdate,
+     admin_updatedate    VARCHAR2(255), 
+     admin_note     VARCHAR2(255) 
 );
 
 SELECT * FROM admins;
 
-
--- ?˙ø?? ?›≠?? ??????
 CREATE TABLE members (
-     mem_num        NUMBER(11) CONSTRAINT m_m_num_pk  PRIMARY KEY,    -- ?˙ø?? ?ÏÔ?  (PK)
-     mem_name       VARCHAR2(255) CONSTRAINT m_m_name_nn NOT NULL,    -- ?˙ø?? ????
-     mem_id         VARCHAR2(255) CONSTRAINT m_m_id_uk UNIQUE,        -- ?˙ø?? ?›¨???⁄Ÿ (UK)
-     mem_pw         VARCHAR2(255) CONSTRAINT m_m_pw_nn NOT NULL,      -- ?˙ø?? ????ÏÔ?
-     mem_birthday   CHAR(6) CONSTRAINT m_m_birthday_nn NOT NULL,      -- ?˙ø?? ?????”ﬂ??
-     mem_sex        CHAR(1) CONSTRAINT m_m_sex_boolean CHECK(mem_sex IN ('0', '1')), -- ?˙ø?? ?¶≥?? (0,1 ?? ???)
-     mem_phone      VARCHAR2(255) CONSTRAINT m_m_phone_uk UNIQUE,     -- ?˙ø?? ?◊º?Õπ?? (UK)
-     mem_email      VARCHAR2(255) CONSTRAINT m_m_email_nn NOT NULL,   -- ?˙ø??
-     mem_address    VARCHAR2(255) CONSTRAINT m_m_address_nn NOT NULL, -- ?˙ø?? ???
-     mem_registrationdate VARCHAR2(255)     DEFAULT sysdate,          -- ?˙ø?? ?”Ù?˚≈?
-     mem_updatedate VARCHAR2(255),                                     -- ?˙ø?? ?›≠?? ?????
-     mem_note       VARCHAR2(255)                                     -- ???
+     mem_num        NUMBER(11) CONSTRAINT m_m_num_pk  PRIMARY KEY,
+     mem_name       VARCHAR2(255) CONSTRAINT m_m_name_nn NOT NULL, 
+     mem_id         VARCHAR2(255) CONSTRAINT m_m_id_uk UNIQUE, 
+     mem_pw         VARCHAR2(255) CONSTRAINT m_m_pw_nn NOT NULL,  
+     mem_birthday   CHAR(6) CONSTRAINT m_m_birthday_nn NOT NULL,     
+     mem_sex        CHAR(1) CONSTRAINT m_m_sex_boolean CHECK(mem_sex IN ('0', '1')), 
+     mem_phone      VARCHAR2(255) CONSTRAINT m_m_phone_uk UNIQUE,    
+     mem_email      VARCHAR2(255) CONSTRAINT m_m_email_nn NOT NULL, 
+     mem_address    VARCHAR2(255) CONSTRAINT m_m_address_nn NOT NULL, 
+     mem_registrationdate VARCHAR2(255)     DEFAULT sysdate,
+     mem_updatedate VARCHAR2(255),                           
+     mem_note       VARCHAR2(255)  
 );
 
 SELECT * FROM members;
@@ -34,75 +32,63 @@ SELECT * FROM members;
 
 DELETE FROM members WHERE mem_num = 7;
 
-INSERT INTO members VALUES (mem_num_seq.nextval, '¡∂¿±¡ˆ', 'dbswl94', '1234', '980120', '1', '010-1234-5678', 'yj@naver.com', '∞Ê±‚µµ ±∏∏ÆΩ√', '22/08/09', null, null);
-INSERT INTO members VALUES (mem_num_seq.nextval, '¿ÃµŒ«œ', 'engkengkgg', '1234', '920605', '0', '010-6518-6822', '2ha@gmail.com', '∞Ê±‚µµ ±∏∏ÆΩ√', default, null, null);
-INSERT INTO members VALUES (mem_num_seq.nextval, 'π⁄¡ˆøµ', 'ppakjjii', '1234', '920809', '1', '010-8845-8642', 'ppakjjii@naver.com', '∞Ê±‚µµ ≥≤æÁ¡÷Ω√', '20/05/20', null, null);
-INSERT INTO members VALUES (mem_num_seq.nextval, '±Ëºˆ¡ˆ', '90suji', '1234', '901118', '1', '010-3215-6515', 'ssuji@naver.com', '¿Œ√µ±§ø™Ω√', '22/11/18', null, null);
-INSERT INTO members VALUES (mem_num_seq.nextval, '∞≠∞Ê»£', 'kkhgg', '1234', '850706', '0', '010-5143-8431', 'kkh85@naver.com', '∫ŒªÍ±§ø™Ω√', '21/10/01', null, null);
-INSERT INTO members VALUES (mem_num_seq.nextval, '¿ÃµøøÎ', 'ehddyd', 'dlehddyd12.!', '980426', '0', '010-1234-9876', 'ehddyd@naver.com', '¥Î¿¸±§ø™Ω√', default, null, null);
+INSERT INTO members VALUES (mem_num_seq.nextval, 'Ï°∞Ïú§ÏßÄ', 'dbswl94', '1234', '980120', '1', '010-1234-5678', 'yj@naver.com', 'Í≤ΩÍ∏∞ÎèÑ Íµ¨Î¶¨Ïãú', '22/08/09', null, null);
+INSERT INTO members VALUES (mem_num_seq.nextval, 'Ïù¥ÎëêÌïò', 'engkengkgg', '1234', '920605', '0', '010-6518-6822', '2ha@gmail.com', 'Í≤ΩÍ∏∞ÎèÑ Íµ¨Î¶¨Ïãú', default, null, null);
+INSERT INTO members VALUES (mem_num_seq.nextval, 'Î∞ïÏßÄÏòÅ', 'ppakjjii', '1234', '920809', '1', '010-8845-8642', 'ppakjjii@naver.com', 'Í≤ΩÍ∏∞ÎèÑ ÎÇ®ÏñëÏ£ºÏãú', '20/05/20', null, null);
+INSERT INTO members VALUES (mem_num_seq.nextval, 'ÍπÄÏàòÏßÄ', '90suji', '1234', '901118', '1', '010-3215-6515', 'ssuji@naver.com', 'Ïù∏Ï≤úÍ¥ëÏó≠Ïãú', '22/11/18', null, null);
+INSERT INTO members VALUES (mem_num_seq.nextval, 'Í∞ïÍ≤ΩÌò∏', 'kkhgg', '1234', '850706', '0', '010-5143-8431', 'kkh85@naver.com', 'Î∂ÄÏÇ∞Í¥ëÏó≠Ïãú', '21/10/01', null, null);
+INSERT INTO members VALUES (mem_num_seq.nextval, 'Ïù¥ÎèôÏö©', 'ehddyd', 'dlehddyd12.!', '980426', '0', '010-1234-9876', 'ehddyd@naver.com', 'ÎåÄÏ†ÑÍ¥ëÏó≠Ïãú', default, null, null);
 
 
--- ?‚ﬁ?? ?›≠?? ??????
 CREATE TABLE books(
-     book_id        VARCHAR2(255)  CONSTRAINT b_b_id_pk  PRIMARY KEY,      -- ?‚ﬁ?? ?”Ù?Á˚??? (PK)
-     book_title     VARCHAR2(255)  CONSTRAINT b_b_title_nn NOT NULL,       -- ?‚ﬁ?? ?◊Á??
-     book_author    VARCHAR2(255)  CONSTRAINT b_b_author_nn NOT NULL,      -- ?‚ﬁ?? ???€Ô
-     book_publisher VARCHAR2(255)  CONSTRAINT b_b_publisher_nn NOT NULL,   -- ?‚ﬁ?? ?—◊??™Æ
-     book_isbn  VARCHAR2(255) CONSTRAINT b_b_isbn_uk UNIQUE,               -- ?‚ﬁ?? ISBN ?ÏÔ?  (UK)
-     book_bias      NUMBER(11) DEFAULT 1,                                  -- ?‚ﬁ?? ?„˜?˚ﬁ?? (?????? 1)
-     book_duplicates NUMBER(11) DEFAULT 1,                                 -- ?‚ﬁ?? ????? (?????? 1)
-     book_price     NUMBER(11),                                            -- ?‚ﬁ?? ????
-     location_id    CHAR(1) CONSTRAINT b_loc_id_fk REFERENCES locations(location_id), -- ?‚ﬁ?? ???? (FK)
-     book_registrationdate   VARCHAR2(255) DEFAULT sysdate,               -- ?‚ﬁ?? ?”Ù?˚≈?
-     book_updatedate     VARCHAR2(255),                                     -- ?‚ﬁ?? ?›≠?? 
-     book_note      VARCHAR2(255)                                          -- ???
+     book_id        VARCHAR2(255)  CONSTRAINT b_b_id_pk  PRIMARY KEY,
+     book_title     VARCHAR2(255)  CONSTRAINT b_b_title_nn NOT NULL, 
+     book_author    VARCHAR2(255)  CONSTRAINT b_b_author_nn NOT NULL,
+     book_publisher VARCHAR2(255)  CONSTRAINT b_b_publisher_nn NOT NULL,
+     book_isbn  VARCHAR2(255) CONSTRAINT b_b_isbn_uk UNIQUE, 
+     book_bias      NUMBER(11) DEFAULT 1,  
+     book_duplicates NUMBER(11) DEFAULT 1,
+     book_price     NUMBER(11),  
+     location_id    CHAR(1) CONSTRAINT b_loc_id_fk REFERENCES locations(location_id),
+     book_registrationdate   VARCHAR2(255) DEFAULT sysdate, 
+     book_updatedate     VARCHAR2(255), 
+     book_note      VARCHAR2(255)
 );
 
 ALTER TABLE books DROP CONSTRAINT b_b_isbn_uk;
 
---CREATE TABLE callsign(
---     book_callsign  VARCHAR2(255)  CONSTRAINT c_b_cs_pk  PRIMARY KEY,
---     cs_classification_code VARCHAR2(255),
---     cs_sign           VARCHAR2(255),
---     cs_bias           NUMBER(11),
---     cs_duplicates     NUMBER(11)
---);
-
--- ?‚ﬁ?? ??? / ???? ??????
 CREATE TABLE locations(
-     location_id    CHAR(1) CONSTRAINT l_l_id_pk  PRIMARY KEY,        -- ?‚ﬁ?? ???? ?›¨???⁄Ÿ   (PK)
-     location_name  VARCHAR2(255) CONSTRAINT l_l_name_nn NOT NULL     -- ?‚ﬁ?? ???? ????
+     location_id    CHAR(1) CONSTRAINT l_l_id_pk  PRIMARY KEY,
+     location_name  VARCHAR2(255) CONSTRAINT l_l_name_nn NOT NULL 
 );
 
-INSERT INTO locations VALUES ('A', '√∂«–');
-INSERT INTO locations VALUES ('B', '¡æ±≥');
-INSERT INTO locations VALUES ('C', 'ªÁ»∏∞˙«–');
-INSERT INTO locations VALUES ('D', '¿⁄ø¨∞˙«–');
-INSERT INTO locations VALUES ('E', '±‚º˙∞˙«–');
-INSERT INTO locations VALUES ('F', 'øπº˙');
-INSERT INTO locations VALUES ('G', 'ææÓ');
-INSERT INTO locations VALUES ('H', 'πÆ«–');
-INSERT INTO locations VALUES ('I', 'ø™ªÁ');
+INSERT INTO locations VALUES ('A', 'Ï≤†Ìïô');
+INSERT INTO locations VALUES ('B', 'Ï¢ÖÍµê');
+INSERT INTO locations VALUES ('C', 'ÏÇ¨ÌöåÍ≥ºÌïô');
+INSERT INTO locations VALUES ('D', 'ÏûêÏó∞Í≥ºÌïô');
+INSERT INTO locations VALUES ('E', 'Í∏∞Ïà†Í≥ºÌïô');
+INSERT INTO locations VALUES ('F', 'ÏòàÏà†');
+INSERT INTO locations VALUES ('G', 'Ïñ∏Ïñ¥');
+INSERT INTO locations VALUES ('H', 'Î¨∏Ìïô');
+INSERT INTO locations VALUES ('I', 'Ïó≠ÏÇ¨');
 
 COMMIT;
 
--- ???? ?™∂?◊∂ ??????
 CREATE TABLE check_out_info(
-     check_out_id   NUMBER(11) CONSTRAINT coi_coi_id_pk PRIMARY KEY,                 -- ???◊µ ?›¨???⁄Ÿ (PK)
-     book_id        VARCHAR2(255) CONSTRAINT coi_b_id_fk REFERENCES books(book_id) ON DELETE SET NULL,  -- ???◊µ ?‚ﬁ??   (FK)
-     mem_num        NUMBER(11) CONSTRAINT coi_m_num_fk REFERENCES members(mem_num) ON DELETE SET NULL,  -- ?˙ø?? ?ÏÔ?   (FK)
-     check_out_date VARCHAR2(255)           DEFAULT sysdate,                         -- ???◊µ ?™¢??
-     expect_return_date VARCHAR2(255)       DEFAULT sysdate + (INTERVAL '7' DAY),    -- ?‹ˆ™´ ??? ?™¢??
-     check_in_date  VARCHAR2(255)                                                    -- ?‹ˆ™´ ?™¢??
+     check_out_id   NUMBER(11) CONSTRAINT coi_coi_id_pk PRIMARY KEY,
+     book_id        VARCHAR2(255) CONSTRAINT coi_b_id_fk REFERENCES books(book_id) ON DELETE SET NULL, 
+     mem_num        NUMBER(11) CONSTRAINT coi_m_num_fk REFERENCES members(mem_num) ON DELETE SET NULL,
+     check_out_date VARCHAR2(255)           DEFAULT sysdate,        
+     expect_return_date VARCHAR2(255)       DEFAULT sysdate + (INTERVAL '7' DAY), 
+     check_in_date  VARCHAR2(255)    
 );
 
 INSERT INTO check_out_info VALUES (check_out_id_seq.nextval, '9', 5, '22/12/10', default, null);
 UPDATE check_out_info SET expect_return_date = '22/12/16' WHERE check_out_id = 6;
 
--- ?◊£???ÕÏ ?›≠?? ??????
 CREATE TABLE readingroom(
-     seat_num       NUMBER(11) CONSTRAINT r_s_num_pk PRIMARY KEY,     -- ?˚ﬁ? ?ÏÔ?  (PK)
-     table_divider  CHAR(1)                                          -- ????? ?◊µ??
+     seat_num       NUMBER(11) CONSTRAINT r_s_num_pk PRIMARY KEY, 
+     table_divider  CHAR(1)
 );
 
 INSERT INTO readingroom VALUES (1, '0');
@@ -125,21 +111,16 @@ INSERT INTO readingroom VALUES (17, '0');
 INSERT INTO readingroom VALUES (18, '0');
 INSERT INTO readingroom VALUES (19, '0');
 INSERT INTO readingroom VALUES (20, '0');
-
 INSERT INTO readingroom VALUES (45, '1');
-
 UPDATE readingroom SET table_divider = '0' WHERE seat_num = 19 OR seat_num = 20;
-
 SELECT * FROM readingroom;
 
-
--- ?˚ﬁ? ???? ?›≠?? ??????
 CREATE TABLE seat_use_details(
-     use_id     NUMBER(11) CONSTRAINT sud_u_id_pk PRIMARY KEY,                        -- ?◊£???ÕÏ ?™Æ???™∂?◊∂ ?›¨???⁄Ÿ     (PK)
-     mem_num    NUMBER(11) CONSTRAINT sud_m_num_fk REFERENCES members(mem_num) ON DELETE SET NULL,       -- ?˙ø???›≠??   (FK)
-     seat_num   NUMBER(11) CONSTRAINT sud_s_num_fk REFERENCES readingroom(seat_num) ON DELETE SET NULL,  -- ?˚ﬁ? ?ÏÔ?  (FK)
-     start_time VARCHAR2(255) DEFAULT to_char(sysdate, 'yyyy.mm.dd hh24:mi'),         -- ?™Æ?? ?˙˚?? ?˙˚??
-     end_time   VARCHAR2(255)                                                         -- ?™Æ?? ??? ?˙˚??
+     use_id     NUMBER(11) CONSTRAINT sud_u_id_pk PRIMARY KEY,   
+     mem_num    NUMBER(11) CONSTRAINT sud_m_num_fk REFERENCES members(mem_num) ON DELETE SET NULL, 
+     seat_num   NUMBER(11) CONSTRAINT sud_s_num_fk REFERENCES readingroom(seat_num) ON DELETE SET NULL, 
+     start_time VARCHAR2(255) DEFAULT to_char(sysdate, 'yyyy.mm.dd hh24:mi'),
+     end_time   VARCHAR2(255)   
 );
 
 INSERT INTO seat_use_details VALUES (user_detail_id_seq.nextval, 1, 1, default, null);
@@ -151,12 +132,10 @@ INSERT INTO seat_use_details VALUES (user_detail_id_seq.nextval, 6, 20, default,
 
 DELETE FROM seat_use_details WHERE end_time IS NOT NULL;
 
-
--- ????? ?›≠?? ??????
 CREATE TABLE IMAGE_INFORMATION(
-     image_id  NUMBER(11) CONSTRAINT i_i_id_pk PRIMARY KEY,                          -- ????? ?›¨???⁄Ÿ     (PK)
-     image_name     VARCHAR2(255) CONSTRAINT i_i_name_nn NOT NULL,                   -- ????? ????
-     image_byte_info      BLOB CONSTRAINT i_i_b_info_nn NOT NULL                     -- ????? byte ?›≠??
+     image_id  NUMBER(11) CONSTRAINT i_i_id_pk PRIMARY KEY,  
+     image_name     VARCHAR2(255) CONSTRAINT i_i_name_nn NOT NULL,
+     image_byte_info      BLOB CONSTRAINT i_i_b_info_nn NOT NULL 
 );
 
 CREATE TABLE MEMBER_LOG_HISTORY (
@@ -239,9 +218,6 @@ CREATE SEQUENCE admin_log_id_seq
     increment by 1
     start with 1;
 
-
-
--- ?˙ø?? ?ÏÔ? ?˙˚??? …
 CREATE SEQUENCE mem_num_seq
      INCREMENT BY 1
      START WITH 1
@@ -250,7 +226,6 @@ CREATE SEQUENCE mem_num_seq
      CYCLE
      NOCACHE;
      
--- ?™Æ?? ?ÏÔ? ?˙˚??? …
 CREATE SEQUENCE admin_num_seq
      INCREMENT BY 1
      START WITH 1
@@ -259,7 +234,6 @@ CREATE SEQUENCE admin_num_seq
      CYCLE
      NOCACHE;
 
--- ?‚ﬁ?? ?”Ù?Á˚??? ?˙˚??? …
 CREATE SEQUENCE book_id_seq
      INCREMENT BY 1
      START WITH 1
@@ -268,7 +242,6 @@ CREATE SEQUENCE book_id_seq
      CYCLE
      NOCACHE;
 
--- ?◊£???ÕÏ ?™Æ?? ?™∂?◊∂ ?›¨???⁄Ÿ ?˙˚??? …
 CREATE SEQUENCE user_detail_id_seq
      INCREMENT BY 1
      START WITH 1
@@ -277,7 +250,6 @@ CREATE SEQUENCE user_detail_id_seq
      CYCLE
      NOCACHE;
 
--- ???◊µ ?›¨???⁄Ÿ ?˙˚??? …
 CREATE SEQUENCE check_out_id_seq
      INCREMENT BY 1
      START WITH 1
@@ -292,7 +264,7 @@ SELECT * FROM check_out_info;
 SELECT * FROM members;
 SELECT * FROM admins;
 
-UPDATE books SET book_duplicates = 2 WHERE book_title = 'æ∆∏ÛµÂ';
+UPDATE books SET book_duplicates = 2 WHERE book_title = 'ÏïÑÎ™¨Îìú';
 
 SELECT * FROM seat_use_details;
 
