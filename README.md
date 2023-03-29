@@ -1,5 +1,6 @@
 # :pushpin: 도서관 관리 프로그램 프로젝트
 >JAVA, Oracle Database를 활용한 도서관 관리 프로그램 프로젝트
+</br>
 
 ## 1. 제작 기간 & 참여 인원
 - 2022년 12월 5일 ~ 2022년 12월 26일
@@ -7,7 +8,8 @@
 </br>
 
 ## 2. 사용 기술
-
+- JAVA
+- Oracle Database
 </br>
 
 ## 3. Usecase Diagram
@@ -15,12 +17,10 @@
 </br>
 
 ## 4. Story Board
-
 </br>
 
 ## 5. ERD 
 ![Library Management Program ERD_박지영](https://user-images.githubusercontent.com/114713801/228455465-5c877f71-65a4-48f0-ad67-e1b5990f5b2a.png)
-
 </br>
 
 ## 6. 기능
